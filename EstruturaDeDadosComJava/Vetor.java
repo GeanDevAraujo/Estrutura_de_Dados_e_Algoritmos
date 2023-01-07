@@ -1,5 +1,7 @@
 package EstruturaDeDadosComJava;
 
+import java.util.Arrays;
+
 public class Vetor {
 
     private String[] elementos;
@@ -22,14 +24,37 @@ public class Vetor {
      * }
      * }
      */
-    public void adiciona(String elementos) throws Exception {
+    public void adiciona(String elemento) throws Exception {
         if (this.tamanho < this.elementos.length) {
-            this.elementos[this.tamanho] = elementos;
+            this.elementos[this.tamanho] = elemento;
             this.tamanho++;
         } else {
             throw new Exception("Vetor já está cheio, não é possível adicionar mais elemtentos!");
         }
 
+    }
+
+    public int tamanho() {
+        return this.tamanho;
+    }
+
+    public String toString() {
+        return Arrays.toString(elementos);
+    }
+
+    public String toString2() {
+        StringBuilder s = new StringBuilder();
+        s.append("[");
+        for (int i = 0; i < this.tamanho - 1; i++) {
+            s.append(this.elementos[i]);
+            s.append(",");
+        }
+        if (this.tamanho > 0) {
+            s.append(this.elementos[this.tamanho - 1]);
+        }
+
+        s.append("]");
+        return s.toString();
     }
 
     public void visuliza(String elemento) {
