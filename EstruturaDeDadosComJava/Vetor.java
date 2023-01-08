@@ -57,6 +57,13 @@ public class Vetor {
         return s.toString();
     }
 
+    public String busca(int posicao) {
+        if (!(posicao >= 0 && posicao < tamanho)) {
+            throw new IllegalArgumentException("Posição Inválida");
+        }
+        return this.elementos[posicao];
+    }
+
     public void visuliza(String elemento) {
         for (int i = 0; i < this.elementos.length; i++) {
             System.out.println(elementos[i]);
