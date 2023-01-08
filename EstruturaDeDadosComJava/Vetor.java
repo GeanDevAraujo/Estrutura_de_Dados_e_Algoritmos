@@ -64,6 +64,25 @@ public class Vetor {
         return this.elementos[posicao];
     }
 
+    public boolean busca1(String elemento) {
+
+        for (int i = 0; i < this.tamanho; i++) {
+            if (this.elementos[i].equals(elemento)) {
+                return (true);
+            }
+        }
+        return false;
+    }
+
+    public int busca2(String elemento) {
+        for (int i = 0; i < this.tamanho; i++) {
+            if (this.elementos[i].equalsIgnoreCase(elemento)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public void visuliza(String elemento) {
         for (int i = 0; i < this.elementos.length; i++) {
             System.out.println(elementos[i]);
