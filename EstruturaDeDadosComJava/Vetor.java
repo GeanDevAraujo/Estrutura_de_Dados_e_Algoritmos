@@ -31,6 +31,7 @@ public class Vetor {
         } else {
             throw new Exception("Vetor já está cheio, não é possível adicionar mais elemtentos!");
         }
+        this.aumentaCapacidade();
 
     }
 
@@ -38,6 +39,7 @@ public class Vetor {
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição Inválida");
         }
+        this.aumentaCapacidade();
         for (int i = this.tamanho; i >= posicao; i--) {
             this.elementos[i + 1] = this.elementos[i];
         }
@@ -83,6 +85,17 @@ public class Vetor {
             }
         }
         return false;
+    }
+
+    private void aumentaCapacidade() {
+
+        if (this.tamanho == this.elementos.length) {
+            String[] elementosNovos = new String[this.elementos.length * 2];
+            for (int i = 0; i < this.elementos.length; i++) {
+                elementosNovos[i] = this.elementos[i];
+            }
+            this.elementos = elementosNovos;
+        }
     }
 
     public int busca2(String elemento) {
